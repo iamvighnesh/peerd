@@ -44,7 +44,7 @@ To run the tool:
 
 ```bash
 CLUSTER_CONTEXT=<your-cluster-context> && \
-  helm --kube-context=$CLUSTER_CONTEXT install --wait overlaybd ./tools/configure-overlaybd-p2p-helm
+  helm --kube-context=$CLUSTER_CONTEXT install --namespace <your-namespace> --create-namespace --wait overlaybd ./tools/configure-overlaybd-p2p-helm
 ```
 
 ## Deployment
@@ -53,7 +53,7 @@ CLUSTER_CONTEXT=<your-cluster-context> && \
 
 ```bash
 CLUSTER_CONTEXT=<your-cluster-context> && \
-  helm --kube-context=$CLUSTER_CONTEXT install --wait peerd ./build/package/peerd-helm \
+  helm --kube-context=$CLUSTER_CONTEXT install --namespace <your-namespace> --create-namespace --wait peerd ./build/package/peerd-helm \
     --set peerd.image.ref=ghcr.io/azure/acr/dev/peerd:stable
 ```
 

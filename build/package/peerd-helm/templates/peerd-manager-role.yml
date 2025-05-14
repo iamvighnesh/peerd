@@ -2,7 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: {{ include "peerd.name" . }}-manager-role
-  namespace: {{ include "peerd.namespace" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "peerd.labels" . | nindent 4 }}
 rules:

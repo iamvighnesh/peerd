@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: &name {{ include "peerd.name" . }}
-  namespace: {{ include "peerd.namespace" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "peerd.labels" . | nindent 4 }}
 {{- if .Values.peerd.metrics.prometheus.aksAutoDiscovery }}

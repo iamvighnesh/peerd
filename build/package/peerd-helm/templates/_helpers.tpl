@@ -5,14 +5,6 @@ Expand the name of the chart.
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
-{{- define "peerd.namespace" -}}
-{{- if .Values.peerd.namespace.k8s }}
-{{- .Values.peerd.namespace.k8s }}
-{{- else }}
-{{ include "peerd.name" . }}-ns
-{{- end }}
-{{- end }}
-
 {{- define "peerd.serviceAccountName" -}}
 {{ include "peerd.name" . }}-sa
 {{- end }}
